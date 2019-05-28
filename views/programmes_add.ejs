@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include partials/header %>
+	</header>
+	<nav>
+		<div class="nav-wrapper">
+			<div class="col s12">
+				<a href="/" class="breadcrumb">Acceuil</a>
+				<a href="/etudiants-list" class="breadcrumb">Gestions des étudiants</a>
+				<a href="!#" class="breadcrumb">Programmes</a>
+			</div>
+		</div>
+	</nav>
+	<section>
+		<h2> Programmes </h2>
+		<hr>
+		<p style="color:green"> Programme ajoutée !
+			<br>
+			<!-- Professeur -->
+			<div class="row">
+
+				<!-- programme -->
+				<% programmes.forEach(function(programme){ %>
+				<div class="col s12 m6">
+					<div class="card">
+						<div class="card-image">
+
+							<a class="btn-floating halfway-fab waves-effect waves-light red" href="/programmes-add/<%= etudiantId %>/<%=programme._id %>" ><i class="material-icons">person_add</i></a>
+						</div>
+						<div class="card-content">
+							<p>Semestre : <%= programme.semestre %></p>
+							<p>Année : <%= programme.annee %></p>
+							<p>Numéro section : <%= programme.nsection %></p>
+
+
+							<p><b>Professeur : <%= programme.profsid %></b></p>
+
+							<p>Description : <%= programme.description %></p>
+						</div>
+
+						<a class="btn-floating halfway-fab waves-effect waves-light red" href="/cours-list/" ><i class="material-icons">add</i></a>
+
+					</div>
+				</div>
+				<% }); %> 
+			</div>
+
+			<footer class="footer-copyright">
+				<% include partials/footer %>
+			</footer>
+
+		</section>
+	</body>
+	</html>

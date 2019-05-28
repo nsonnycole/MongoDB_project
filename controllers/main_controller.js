@@ -73,19 +73,19 @@ exports.programmes_add = function(req, res) {
             //console.log(programme);
             etudiant.programmesid.push(programme);
             etudiant.save();})
-      
+        
     })
 
     Programme.find({}).populate('profsid').exec(function (err, Programmes) {
         if(err){
             console.log(err);
         }else {
-            res.render('programmes.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
+            res.render('programmes-add.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
         }
     })
 
 };
-        
+
 // Affiche liste des profs
 exports.profs_list = function(req, res) {
     /*var prof1 = new Prof({
