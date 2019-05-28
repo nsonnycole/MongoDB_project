@@ -56,3 +56,31 @@ exports.programmes_list = function(req, res) {
     })
 };
 
+
+// Ajoute un programme à un utilisateur
+exports.programmes_add = function(req, res) {
+
+    var etudiantId = req.params.etudiantId;
+    var programmeId = req.params.programmeId;
+
+    Etudiant
+    .findOne({ _id : etudiantId})
+    .populate('programmesid')
+    .exec( function(err, etudiant){
+        Programme.findOne({ _id : programmeId}).exec(function(err, programme){ 
+            //console.log(programme);
+            etudiant.programmesid.push(programme);
+            etudiant.save();})
+      
+    })
+
+    Programme.find({}).populate('profsid').exec(function (err, Programmes) {
+        if(err){
+            console.log(err);
+        }else {
+            res.render('programmes.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
+        }
+    })
+        
+};
+
