@@ -8,7 +8,14 @@
 	<header>
 		<% include partials/header %>
 	</header>
-
+	<nav>
+		<div class="nav-wrapper">
+			<div class="col s12">
+				<a href="/" class="breadcrumb">Acceuil</a>
+				<a href="#!" class="breadcrumb">Gestions des étudiants</a>
+			</div>
+		</div>
+	</nav>
 	<section>
 		<div class="container">
 			<div class="section">
@@ -23,19 +30,24 @@
 						<div class="card">
 							<div class="card-image">
 
-								<a class="btn-floating halfway-fab waves-effect waves-light red" href="/programmes-list/<%=etudiant._id %>" ><i class="material-icons">add</i></a>
+								
 							</div>
 							<div class="card-content">
-								<%= etudiant.nom %> -- <%= etudiant.prenom %>
-
 								<p>
-									<a class="waves-effect waves-light btn-small" href="/programmes-list/<%= etudiant._id %>">Programmes</a>
-									<br>
-									<a class="waves-effect waves-light btn-small">Cours</a>
-									<br>
-									<a class="waves-effect waves-light btn-small">Notes</a>
-
+									<i class="large material-icons">account_circle</i>
+									<%= etudiant.nom %> -- <%= etudiant.prenom %>
 								</p>
+								<hr>
+								<center>
+									<p>
+										<a class="waves-effect waves-light" href="/programmes-list/<%= etudiant._id %>">Programmes</a>
+										<br>
+										<a class="waves-effect waves-light">Cours</a>
+										<br>
+										<a class="waves-effect waves-light">Notes</a>
+
+									</p>
+								</center>
 							</div>
 						</div>
 					</div>
