@@ -13,3 +13,9 @@ exports.home = function(req, res) {
 };
 
 
+// Affiche liste des utilisateurs
+exports.users_list = function(req, res) { 
+    res.render('index.ejs');   
+};
+
+
