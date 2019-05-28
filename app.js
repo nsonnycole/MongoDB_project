@@ -7,6 +7,7 @@ var express = require('express'),
   mongoose = require('mongoose'),
   
   Prof    = require('./models/profsModel'), //created model loading here
+  Programme = require('./models/programmesModel'), 
 
 
   bodyParser = require('body-parser'),
