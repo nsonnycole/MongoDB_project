@@ -10,6 +10,7 @@ mongoose = require('mongoose'),
   Programme = require('./models/programmesModel'), 
   Etudiant = require('./models/etudiantModels'),
   Note = require('./models/notesModels'),
+  Cour = require('./models/coursModels'),
 
   bodyParser = require('body-parser'),
   session = require('client-sessions');
