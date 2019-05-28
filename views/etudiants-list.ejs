@@ -1,0 +1,10 @@
+<div>
+        
+    <% etudiants.forEach(function(etudiant){ %>
+        <a href="/programmes/choice/<%= etudiant._id %>" >
+          <div >
+            <p><%= etudiant.nom %> -- <%= etudiant.prenom %> </p>   
+          </div>
+        </a>
+    <% }); %>  
+</div>
