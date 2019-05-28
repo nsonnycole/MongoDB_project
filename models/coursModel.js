@@ -10,7 +10,6 @@ var coursSchema = new Schema({
     titre: String,
     credit: Number,
     prerequis: [String],
-    coursid: [{ type: Schema.Types.ObjectId, ref: 'Cours'}],
     programmesid: [{ type: Schema.Types.ObjectId, ref: 'Programmes'}]
 
 });
