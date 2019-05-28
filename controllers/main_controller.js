@@ -21,8 +21,8 @@ exports.home = function(req, res) {
 exports.etudiants_list = function(req, res) { 
 
     /*var etudiant1 = new Etudiant ( {
-        nom : "Test",
-        prenom : "Test"
+        nom : "EL AMIRCHI",
+        prenom : "Rachid"
     })
 
     etudiant1.save();*/
