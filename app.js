@@ -7,10 +7,10 @@ port = process.env.PORT || 3000;
 mongoose = require('mongoose'),
 
   Prof    = require('./models/profsModel'), //created model loading here
-  Programme = require('./models/programmesModel'), 
-  Etudiant = require('./models/etudiantModels'),
-  Note = require('./models/notesModels'),
-  Cour = require('./models/coursModels'),
+  Programme = require('./models/programmesModel'),
+  Etudiant = require('./models/etudiantsModel'),
+  Note = require('./models/notesModel'),
+  Cour = require('./models/coursModel'),
 
   bodyParser = require('body-parser'),
   session = require('client-sessions');
