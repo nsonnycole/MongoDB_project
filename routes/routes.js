@@ -8,4 +8,7 @@ module.exports = function(app) {
     app.route('/home')
     .get(main.home);
 
+    app.route('/users-list')
+    .get(main.users_list);
+
 }
