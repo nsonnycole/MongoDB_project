@@ -8,7 +8,7 @@ var express = require('express'),
   
   Prof    = require('./models/profsModel'), //created model loading here
   Programme = require('./models/programmesModel'), 
-
+  Etudiant = require('./models/etudiantModels'),
 
   bodyParser = require('body-parser'),
   session = require('client-sessions');
