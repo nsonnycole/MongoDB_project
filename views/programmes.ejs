@@ -9,10 +9,10 @@
 	<header>
 		<% include partials/header %>
 	</header>
-
 	<section>
 		<h2> Programmes </h2>
 		<hr>
+		<br>
 		<!-- Professeur -->
 		<div class="row">
 
@@ -21,9 +21,8 @@
 			<div class="col s12 m6">
 				<div class="card">
 					<div class="card-image">
-						<img src="../images/prog.jpg" width="300px">
-						<span class="card-title" style="color:#0179bf ; font-weight: bold">Programme</span>
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href=""><i class="material-icons">add</i></a>
+
+						<a class="btn-floating halfway-fab waves-effect waves-light red" href="/programmes-list/<%= etudiantId %>/<%=programme._id %>" ><i class="material-icons">add</i></a>
 					</div>
 					<div class="card-content">
 						<%= programme.annee %>
