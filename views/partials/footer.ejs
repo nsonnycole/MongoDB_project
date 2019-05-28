@@ -12,6 +12,18 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="/javascripts/materialize.js"></script>
 	<script src="/javascripts/init.js"></script>
+	<script type="text/javascript">
+		
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.collapsible');
+			var instances = M.Collapsible.init(elems, options);
+		});
 
+  // Or with jQuery
+
+  $(document).ready(function(){
+  	$('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

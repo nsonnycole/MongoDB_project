@@ -1,4 +1,3 @@
-<!-- views/index.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +10,34 @@
 		<% include partials/header %>
 	</header>
 
-	<h1>Programmes</h1>
-	<%- programmes %>
-	<footer class="footer-copyright">
-		<% include partials/footer %>
-	</footer>
+	<section>
+		<h2> Programmes </h2>
+		<hr>
+		<!-- Professeur -->
+		<div class="row">
 
+			<!-- programme -->
+			<% programmes.forEach(function(programme){ %>
+			<div class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="../images/prog.jpg" width="300px">
+						<span class="card-title" style="color:#0179bf ; font-weight: bold">Programme</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red" href=""><i class="material-icons">add</i></a>
+					</div>
+					<div class="card-content">
+						<%= programme.annee %>
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+					</div>
+				</div>
+			</div>
+			<% }); %> 
+		</div>
+
+		<footer class="footer-copyright">
+			<% include partials/footer %>
+		</footer>
+
+	</section>
 </body>
 </html>

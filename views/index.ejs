@@ -12,42 +12,71 @@
 	</header>
 
 	<section>
-		<div class="container">
-			<div class="section">
-				
-
-				<!--   Icon Section   -->
-				<div class="row">
-					<div class="col s12 m4">
-						<div class="icon-block">
-							<h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-							<h5 class="center"><a href="">Nouveau</a></h5>
-						</div>
+		<h5> Interface de gestion </h5>
+		<hr>
+		<!-- Professeur -->
+		<div class="row">
+			<div class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="images/professeur.jpg" width="300px">
+						<span class="card-title" style="color:#0179bf ; font-weight: bold">Professeurs</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 					</div>
-
-					<div class="col s12 m4">
-						<div class="icon-block">
-							<h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-							<h5 class="center"><a href="/users">Gestion des étudiants</a></h5>
-						</div>
-					</div>
-
-					<div class="col s12 m4">
-						<div class="icon-block">
-							<h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-							<h5 class="center"><a href="">Paramètres</a></h5>
-						</div>
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
 					</div>
 				</div>
-
 			</div>
-			<br><br>
+
+			<!-- Etudiants -->
+
+			<div class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="./images/etudiants.jpg" width="300px">
+						<span class="card-title" style="color:#0179bf; font-weight: bold">Etudiants</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red" href="/etudiants-list"><i class="material-icons">add</i></a>
+					</div>
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Cours -->
+			<div class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="images/cours.jpg" width="300px">
+						<span class="card-title" style="color:#0179bf ; font-weight: bold">Cours</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+					</div>
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- programme -->
+			<div class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="images/prog.jpg" width="300px">
+						<span class="card-title" style="color:#0179bf ; font-weight: bold">Programme</span>
+						<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+					</div>
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<footer class="footer-copyright">
+			<% include partials/footer %>
+		</footer>
+
 	</section>
-
-	<footer class="footer-copyright">
-		<% include partials/footer %>
-	</footer>
-
 </body>
 </html>
