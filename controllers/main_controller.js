@@ -16,7 +16,7 @@ exports.home = function(req, res) {
 
 
 // Affiche liste des etudiants
-exports.users_list = function(req, res) { 
+exports.etudiants_list = function(req, res) { 
 
     /*var etudiant1 = new Etudiant ( {
         nom : "Test",
