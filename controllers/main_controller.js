@@ -73,14 +73,14 @@ exports.programmes_add = function(req, res) {
             //console.log(programme);
             etudiant.programmesid.push(programme);
             etudiant.save();})
-        
+
     })
 
     Programme.find({}).populate('profsid').exec(function (err, Programmes) {
         if(err){
             console.log(err);
         }else {
-            res.render('programmes-add.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
+            res.render('programmes_add.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
         }
     })
 
