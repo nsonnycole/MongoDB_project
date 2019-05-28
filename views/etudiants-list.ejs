@@ -37,17 +37,66 @@
 									<i class="large material-icons">account_circle</i>
 									<%= etudiant.nom %> -- <%= etudiant.prenom %>
 								</p>
-								<hr>
-								<center>
-									<p>
-										<a class="waves-effect waves-light" href="/programmes-list/<%= etudiant._id %>">Programmes</a>
-										<br>
-										<a class="waves-effect waves-light">Cours</a>
-										<br>
-										<a class="waves-effect waves-light">Notes</a>
 
-									</p>
-								</center>
+								<hr>
+								
+								<p>
+
+
+									<br>
+									Liste des programmes
+									<hr>
+									<a class="waves-effect waves-light" href="/programmes-list/<%= etudiant._id %>">Ajoutez un programme</a>
+
+
+									<ul class="collapsible">
+										<li>
+											<div class="collapsible-header">Programmes</div>
+											<div class="collapsible-body">
+												<% if (etudiant.programmesid) { %>
+												<ul>
+
+													<% etudiant.programmesid.forEach(function(programme){ %>
+													<li>• <%= programme.annee %> | <%= programme.semestre %>| <%= programme.horaires %>
+													</li>
+													<% }); %>
+												</ul>
+
+												<% } %>
+											</div>
+										</li>
+									</ul>
+
+									<br>
+
+									<a class="waves-effect waves-light">Ajoutez un cours</a>
+
+									<ul class="collapsible">
+										<li>
+											<div class="collapsible-header">Cours</div>
+											<div class="collapsible-body">
+
+											</div>
+										</li>
+									</ul>
+
+									<br>
+
+									<br>
+									<a class="waves-effect waves-light">Ajoutez une note</a>
+
+									<ul class="collapsible">
+										<li>
+											<div class="collapsible-header">Notes</div>
+											<div class="collapsible-body">
+												
+											</div>
+										</li>
+									</ul>
+
+
+								</p>
+
 							</div>
 						</div>
 					</div>
