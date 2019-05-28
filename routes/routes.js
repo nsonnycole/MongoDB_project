@@ -11,4 +11,6 @@ module.exports = function(app) {
     app.route('/users-list')
     .get(main.users_list);
 
+    app.route('/programmes-list').get(main.programmes_list);
+
 }
