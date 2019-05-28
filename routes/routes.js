@@ -11,7 +11,9 @@ module.exports = function(app) {
 	app.route('/etudiants-list')
 	.get(main.etudiants_list);
 
-	app.route('/programmes-list/:etudiantId').get(main.programmes_list);
+    app.route('/programmes-list/:etudiantId')
+    .get(main.programmes_list);
 
-	app.route('/programmes-list/:etudiantId/:programmeId').get(main.programmes_list);
+    app.route('/programmes-list/:etudiantId/:programmeId')
+    .get(main.programmes_add);
 }
