@@ -14,4 +14,7 @@ module.exports = function(app) {
 	app.route('/programmes-list/:etudiantId').get(main.programmes_list);
 
 	app.route('/programmes-list/:etudiantId/:programmeId').get(main.programmes_list);
+
+	app.route('/profs-list').get(main.profs_list);
+
 }
