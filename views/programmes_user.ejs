@@ -12,7 +12,7 @@
 		<div class="nav-wrapper">
 			<div class="col s12">
 				<a href="/" class="breadcrumb">Acceuil</a>
-				<a href="/profs-list" class="breadcrumb">Gestions des profs</a>
+				<a href="/etudiants-list" class="breadcrumb">Gestions des étudiants</a>
 				<a href="!#" class="breadcrumb">Programmes</a>
 			</div>
 		</div>
@@ -31,31 +31,15 @@
 				<div class="card">
 					<div class="card-image">
 
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="" ><i class="material-icons">person_add</i></a>
+						<a class="btn-floating halfway-fab waves-effect waves-light red" href="/programmes-add/<%= etudiantId %>/<%=programme._id %>" ><i class="material-icons">person_add</i></a>
 					</div>
 					<div class="card-content">
 						<p>Semestre : <%= programme.semestre %></p>
 						<p>Année : <%= programme.annee %></p>
 						<p>Numéro section : <%= programme.nsection %></p>
 						
-						<ul class="collapsible">
-							<li>
-								<div class="collapsible-header">Professeur</div>
-								<div class="collapsible-body">
-									<% if (programme.profsid) { %>
-									<ul>
 
-										<% programme.profsid.forEach(function(prof){ %>
-										<li>• <%= prof.nom %> |  Département :  <%= prof.departement %> | Titre : <%= prof.titre %>
-										</li>
-										<% }); %>
-									</ul>
-
-									<% } %>
-								</div>
-							</li>
-						</ul>
-
+						<p><b>Professeur : <%= programme.profsid %></b></p>
 
 						<p>Description : <%= programme.description %></p>
 					</div>

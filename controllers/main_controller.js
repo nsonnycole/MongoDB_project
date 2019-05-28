@@ -37,7 +37,7 @@ exports.etudiants_list = function(req, res) {
 };
 
 // Affiche liste des programmes
-exports.programmes_list = function(req, res) {
+exports.programmes_list_user = function(req, res) {
     /*var programme1 = new Programme({
         annee:  "2019",
         semestre: 2,
@@ -53,10 +53,26 @@ exports.programmes_list = function(req, res) {
         if(err){
             console.log(err);
         }else {
+            res.render('programmes_user.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
+        }
+    })
+};
+
+
+// Affiche liste des programmes
+exports.programmes_list = function(req, res) {
+  
+    var etudiantId = req.params.etudiantId;
+
+    Programme.find({}).populate('profsid').exec(function (err, Programmes) {
+        if(err){
+            console.log(err);
+        }else {
             res.render('programmes.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
         }
     })
 };
+
 
 
 // Ajoute un programme à un utilisateur
