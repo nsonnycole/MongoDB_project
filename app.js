@@ -15,7 +15,7 @@ var express = require('express'),
 
     //mongoose instance connection url connection
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://bokokvin:sylvestre96@ds261521.mlab.com:61521/zeyo'); 
+    mongoose.connect('mongodb://bokokvin:sylvestre96@ds147926.mlab.com:47926/ipssi');
     //mongoose.connect('mongodb://localhost/PaiementDB'); 
 
 
