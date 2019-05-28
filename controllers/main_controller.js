@@ -44,11 +44,14 @@ exports.programmes_list = function(req, res) {
     });
 
     programme1.save();*/
+
+    var etudiantId = req.params.etudiantId;
+
     Programme.find({}).populate('profsid').exec(function (err, Programmes) {
         if(err){
             console.log(err);
         }else {
-            res.render('programmes.ejs', {"programmes": Programmes});
+            res.render('programmes.ejs', {"programmes": Programmes, "etudiantId": etudiantId});
         }
     })
 };
