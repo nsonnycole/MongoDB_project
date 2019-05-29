@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include partials/head %>
+</head>
+<body class="container">
+
+  <header>
+    <% include partials/header %>
+  </header>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="/" class="breadcrumb">Acceuil</a>
+        <a href="#!" class="breadcrumb">Nouveau</a>
+      </div>
+    </div>
+  </nav>
+  <section>
+    <div class="container">
+      <div class="section">
+
+        <form  action="/note-new/<%= coursId %>" method="post" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+             <label for="etudiantId">Etudiant</label>
+             <select id="etudiantId" name="etudiantId">
+              <% etudiants.forEach(function(etudiant){ %>
+              yo
+              <option value="<%= etudiant._id %>"><%= etudiant.nom %> -- <%= etudiant.prenom %></option>
+              <% }); %> 
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <input id="note" type="number" min="0" max="20" step="1" class="validate" name="note">
+            <label for="note">Note</label>
+          </div>
+        </div>
+
+        <input type="submit" value="Créer" class="waves-effect waves-light btn-small"/>
+      </form>
+
+
+    </div>
+  </div>
+</section>
+<footer class="footer-copyright">
+  <% include partials/footer %>
+</footer>
+</body>
+</html>

@@ -24,6 +24,7 @@
 				<br>
 				<div class="row">
 
+
 					<!-- programme -->
 					<% etudiants.forEach(function(etudiant){ %>
 					<div class="col s12 m6">
@@ -69,12 +70,16 @@
 
 									<br>
 
-									<a class="waves-effect waves-light">Ajoutez un cours</a>
+									<a class="waves-effect waves-light" href="/cours-list/<%= etudiant._id %>">Ajoutez un cours</a>
 
 									<ul class="collapsible">
 										<li>
 											<div class="collapsible-header">Cours</div>
 											<div class="collapsible-body">
+												
+												<ul>
+													
+												</ul>
 
 											</div>
 										</li>
@@ -83,7 +88,7 @@
 									<br>
 
 									<br>
-									<a class="waves-effect waves-light">Ajoutez une note</a>
+									<a class="waves-effect waves-light" >Ajoutez une note</a>
 
 									<ul class="collapsible">
 										<li>

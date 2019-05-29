@@ -10,7 +10,7 @@ var Etudiant = mongoose.model('Etudiants');
 var Programme = mongoose.model('Programmes');
 var Cours = mongoose.model('Cours');
 var Prof = mongoose.model('Profs');
-
+var Note = mongoose.model('Notes');
 
 // Affiche la page d'accueil
 exports.home = function(req, res) { 
@@ -55,9 +55,14 @@ exports.etudiants_list = function(req, res) {
     .find({})
     .populate('programmesid')
     .exec(function (err, Etudiant) {
-        console.log(Etudiant);
-        res.render('etudiants-list.ejs', {etudiants: Etudiant});
-    })
+
+      res.render('etudiants-list.ejs', {"etudiants": Etudiant });
+  })
+
+
+
+    
+
 };
 
 
@@ -169,10 +174,10 @@ exports.profs_list = function(req, res) {
 exports.prof_new = function(req, res) {
 
     var prof1 = new Prof({
-       nom:  req.body.nom,
-       departement: req.body.departement,
-       titre: req.body.titre,
-   });
+     nom:  req.body.nom,
+     departement: req.body.departement,
+     titre: req.body.titre,
+ });
 
     prof1.save();
     res.redirect("profs");
@@ -181,22 +186,6 @@ exports.prof_new = function(req, res) {
 
 
 //  **** COURS ****
-
-
-exports.cours_new = function(req, res) {
-
-    var cours1 = new Cours({
-        annee:  req.body.annee,
-        semestre: req.body.semestre,
-        nsection: req.body.nsection,
-        horaires: req.body.horaires,
-    });
-
-    cours1.save();
-    res.redirect("cours");
-}
-
-
 
 // Affiche liste des profs
 exports.cours_list = function(req, res) {
@@ -209,3 +198,53 @@ exports.cours_list = function(req, res) {
         }
     })
 };
+
+
+
+
+exports.cours_new = function(req, res) {
+
+
+    var cours = new Cours({
+        annee:  req.body.cours,
+        semestre: req.body.semestre,
+        nsection: req.body.nsection,
+        horaires: req.body.horaires,
+    });
+
+    cours1.save();
+    res.redirect("cours");
+}
+
+
+
+// NOTE
+
+exports.add_note = function(req, res) {
+
+    Etudiant
+    .find({})
+    .exec(function (err, Etudiant) {
+        console.log(Etudiant);
+        res.render('add_note.ejs', {etudiants: Etudiant, coursId: req.params.coursId});
+    })
+
+
+};
+
+exports.note_new = function(req, res) {
+
+
+    var coursId = req.params.coursId;
+
+    var note1 = new Cours({
+       id_cours:  coursId,
+       id_etudiant:  req.body.etudiantId,
+       note: req.body.note,
+       date: Date(),
+   });
+
+    note1.save();
+    res.redirect("/etudiants-list");
+}
+

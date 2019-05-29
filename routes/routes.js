@@ -46,9 +46,15 @@ module.exports = function(app) {
     app.route('/cours-list')
     .get(main.cours_list);
 
+    app.route('/cours-list/:etudiantId')
+    .get(main.cours_list);
+
+    app.route('/add_note/:coursId')
+    .get(main.add_note);
+
     app.route('/cours-new')
     .post(main.cours_new);
 
-    // app.route('/cours-add/:etudiantId')
-    // .post(main.cours_add);
+    app.route('/note-new/:coursId')
+    .post(main.note_new);
 }
