@@ -73,7 +73,7 @@ exports.programmes_new = function(req, res) {
 });
 
   programme1.save();
-  res.redirect("programmes");
+  res.redirect("programmes-list");
 }
 
 

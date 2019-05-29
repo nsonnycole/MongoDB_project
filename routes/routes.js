@@ -48,4 +48,7 @@ module.exports = function(app) {
 
     app.route('/cours-new')
     .post(main.cours_new);
+
+    // app.route('/cours-add/:etudiantId')
+    // .post(main.cours_add);
 }

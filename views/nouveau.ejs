@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include partials/head %>
+</head>
+<body class="container">
+
+  <header>
+    <% include partials/header %>
+  </header>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="/" class="breadcrumb">Acceuil</a>
+        <a href="#!" class="breadcrumb">Nouveau</a>
+      </div>
+    </div>
+  </nav>
+  <section>
+    <div class="container">
+      <div class="section">
+
+        <!-- Nouveau cours -->
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">Nouveau programme</div>
+            <div class="collapsible-body">
+              <form  action="/programmes-new" method="post" class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input  id="annee" class="validate" name="annee"  type="number" min="1900" max="2099" step="1" >
+                    <label for="annee">Annee</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="semestre" type="number" min="1" max="30" step="1" class="validate" name="semestre">
+                    <label for="semestre">Semestre</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="nsection" type="number" class="validate" name="nsection">
+                    <label for="nsection">Numéro section</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="horaires" type="Date" class="validate" name="horaires">
+                    <label for="horaires">Horaires</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="description" type="text" class="validate" name="description">
+                    <label for="description">Description</label>
+                  </div>
+                </div>
+                <input type="submit" value="Créer" class="waves-effect waves-light btn-small"/>
+              </form>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Nouveau cours -->
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">Nouveau cours</div>
+            <div class="collapsible-body">
+             <form  action="/cours-new" method="post" class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input  id="nom" type="text" class="validate" name="nom">
+                  <label for="nom">Nom</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="titre" type="text" class="validate" name="titre">
+                  <label for="titre">Titre</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <input id="credit" type="number" class="validate" name="credit">
+                  <label for="credit">Crédits</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="prerequis" type="text" class="validate" name="prerequis">
+                  <label for="prerequis">Pré-réquis</label>
+                </div>
+              </div>
+              <input type="submit" value="Créer" class="waves-effect waves-light btn-small" />
+            </form>
+          </div>
+        </li>
+      </ul>
+
+
+      <!-- Nouveau etudiant -->
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header">Nouvel étudiant</div>
+          <div class="collapsible-body">
+            <form  action="/etudiant-new" method="post" class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input  id="nom" type="text" class="validate" name="nom">
+                  <label for="nom">Nom</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="prenom" type="text" class="validate" name="prenom">
+                  <label for="prenom">prenom</label>
+                </div>
+              </div>
+              <input type="submit" value="Créer" class="waves-effect waves-light btn-small"/>
+            </form>
+          </div>
+        </li>
+      </ul>
+
+
+      <!-- Nouveau prof -->
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header">Nouvel Professeur</div>
+          <div class="collapsible-body">
+            <form  action="/prof-new" method="post" class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input  id="nom" type="text" class="validate" name="nom">
+                  <label for="nom">Nom</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="departement" type="text" class="validate" name="departement">
+                  <label for="departement">Département</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="titre" type="text" class="validate" name="titre">
+                  <label for="titre">Titre</label>
+                </div>
+              </div>
+              <input type="submit" value="Créer" class="waves-effect waves-light btn-small"/>
+            </form>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+<footer class="footer-copyright">
+  <% include partials/footer %>
+</footer>
+</body>
+</html>
