@@ -26,42 +26,45 @@
 		<div class="row">
 
 			<!-- programme -->
-			<% cours.forEach(function(cour){ %>
+			<% notes.forEach(function(note){ %>
 			<div class="col s12 m6">
 				<div class="card">
 					<div class="card-image">
 
-
-
-
 					</div>
 					<div class="card-content">
-						<p>Nom : <%= cour.nom %></p>
-						<p>Titre : <%= cour.titre %></p>
-						<p>Nombre de cours : <%= cour.nombre %></p>
 
-						<p>Crédits : <%= cour.nsection %></p>
-						
 						<ul class="collapsible">
 							<li>
-								<div class="collapsible-header">Pre-requis</div>
+								<div class="collapsible-header">Notes</div>
 								<div class="collapsible-body">
 
-									<%= cour.prerequis %>
+									
 
-									<% if (cour.prerequis) { %>
+									<% if (note.id_etudiant) { %>
 									<ul>
-										<% cour.prerequis.forEach(function(prerequis){ %>
-										<li><%= prerequis %></li>
-										<% }); %>
+										
+										<li>
+											<% note.id_etudiant.forEach(function(etudiant){ %>
+											<%= etudiant.nom %><%= etudiant.prenom %>
+											<% }); %> 
+
+											<% note.id_cours.forEach(function(cours){ %>
+											<%= cours.nom %>
+											<% }); %> 
+
+											
+										</li>
 									</ul>
+
+									<%= note.note %>
 
 									<% } %>
 								</div>
 							</li>
 						</ul>
 
-						<a class="waves-effect waves-light" href="/add_note/<%= cour._id %>">Ajoutez une note</a> 
+						
 					</div>
 
 					<!-- 				<a class="btn-floating halfway-fab waves-effect waves-light red" href="/cours-list/" ><i class="material-icons">add</i></a> -->

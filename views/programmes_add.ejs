@@ -37,24 +37,60 @@
 							<p>Semestre : <%= programme.semestre %></p>
 							<p>Année : <%= programme.annee %></p>
 							<p>Numéro section : <%= programme.nsection %></p>
+							
+							<ul class="collapsible">
+								<li>
+									<div class="collapsible-header">Professeur</div>
+									<div class="collapsible-body">
+										<% if (programme.profsid) { %>
+										<ul>
+
+											<% programme.profsid.forEach(function(prof){ %>
+											<li>• <%= prof.nom %> |  Département :  <%= prof.departement %> | Titre : <%= prof.titre %>
+											</li>
+											<% }); %>
+										</ul>
+
+										<% } %>
+									</div>
+								</li>
+							</ul>
+
+						<!-- <ul class="collapsible">
+							<li>
+								<div class="collapsible-header">Cours</div>
+								<div class="collapsible-body">
+
+									<%= programme.idcours %>
+
+									<% if (programme.idcours) { %>
+									<ul>
+										<% programme.idcours.forEach(function(cours){ %>
+										<li>• <%= cours.nom %> |  Titre : <%= cours.titre %> | Crédits :  <%= cours.credits %> | Nombre :  <%= cours.nombre %>
+										</li>
+										<% }); %>
+									</ul>
+
+									<% } %>
+								</div>
+							</li>
+						</ul> -->
 
 
-							<p><b>Professeur : <%= programme.profsid %></b></p>
 
-							<p>Description : <%= programme.description %></p>
-						</div>
-
-						<a class="btn-floating halfway-fab waves-effect waves-light red" href="/cours-list/" ><i class="material-icons">add</i></a>
-
+						<p>Description : <%= programme.description %></p>
 					</div>
+
+
 				</div>
-				<% }); %> 
 			</div>
+			<% }); %> 
+		</div>
 
-			<footer class="footer-copyright">
-				<% include partials/footer %>
-			</footer>
+		<footer class="footer-copyright">
+			<% include partials/footer %>
+		</footer>
 
-		</section>
-	</body>
-	</html>
+	</section>
+</body>
+</html>

@@ -57,4 +57,7 @@ module.exports = function(app) {
 
     app.route('/note-new/:coursId')
     .post(main.note_new);
+
+    app.route('/note-list')
+    .get(main.note_list);
 }

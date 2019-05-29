@@ -174,10 +174,10 @@ exports.profs_list = function(req, res) {
 exports.prof_new = function(req, res) {
 
     var prof1 = new Prof({
-     nom:  req.body.nom,
-     departement: req.body.departement,
-     titre: req.body.titre,
- });
+       nom:  req.body.nom,
+       departement: req.body.departement,
+       titre: req.body.titre,
+   });
 
     prof1.save();
     res.redirect("profs");
@@ -190,7 +190,7 @@ exports.prof_new = function(req, res) {
 // Affiche liste des profs
 exports.cours_list = function(req, res) {
 
-    Prof.find({}).exec(function (err, Cours) {
+    Cours.find({}).exec(function (err, Cours) {
         if(err){
             console.log(err);
         }else {
@@ -205,20 +205,35 @@ exports.cours_list = function(req, res) {
 exports.cours_new = function(req, res) {
 
 
-    var cours = new Cours({
-        annee:  req.body.cours,
-        semestre: req.body.semestre,
-        nsection: req.body.nsection,
-        horaires: req.body.horaires,
+    var cours1 = new Cours({
+        nom: req.body.nom,
+        nombre:  req.body.nombre,
+        titre: req.body.titre,
+        credit: req.body.credit,
+        prerequis: req.body.prerequis
     });
 
     cours1.save();
-    res.redirect("cours");
+    res.redirect("cours-list");
 }
 
 
 
 // NOTE
+
+
+exports.note_list = function(req, res) {
+
+    Note.find({}).exec(function (err, Note) {
+        if(err){
+            console.log(err);
+        }else {
+            console.log(Note);
+            res.render('note.ejs', {"notes": Note});
+        }
+    })
+};
+
 
 exports.add_note = function(req, res) {
 
@@ -232,17 +247,18 @@ exports.add_note = function(req, res) {
 
 };
 
+
 exports.note_new = function(req, res) {
 
 
     var coursId = req.params.coursId;
 
     var note1 = new Cours({
-       id_cours:  coursId,
-       id_etudiant:  req.body.etudiantId,
-       note: req.body.note,
-       date: Date(),
-   });
+     id_cours:  coursId,
+     id_etudiant:  req.body.etudiantId,
+     note: req.body.note,
+     date: Date(),
+ });
 
     note1.save();
     res.redirect("/etudiants-list");
