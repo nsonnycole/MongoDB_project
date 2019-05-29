@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 //var Prof = mongoose.model('Profs');
 var Etudiant = mongoose.model('Etudiants');
 var Programme = mongoose.model('Programmes');
+var Cours = mongoose.model('Cours');
 var Prof = mongoose.model('Profs');
 
 
@@ -15,6 +16,30 @@ var Prof = mongoose.model('Profs');
 exports.home = function(req, res) { 
     res.render('index.ejs');   
 };
+
+
+// Affiche la page de création
+exports.new = function(req, res) { 
+    res.render('nouveau.ejs');   
+};
+
+
+// **** ETUDIANTS *** 
+
+
+exports.etudiant_new = function(req, res) {
+
+  var etudiant1 = new Etudiant ( {
+    nom : req.body.nom,
+    prenom : req.body.prenom,
+})
+
+  etudiant1.save();
+
+
+  res.redirect("etudiants-list");
+}
+
 
 
 // Affiche liste des etudiants
@@ -26,7 +51,6 @@ exports.etudiants_list = function(req, res) {
     })
 
     etudiant1.save();*/
-
     Etudiant
     .find({})
     .populate('programmesid')
@@ -35,6 +59,23 @@ exports.etudiants_list = function(req, res) {
         res.render('etudiants-list.ejs', {etudiants: Etudiant});
     })
 };
+
+
+// **** PROGRAMMES ***
+
+exports.programmes_new = function(req, res) {
+
+  var programme1 = new Programme({
+    annee:  req.body.annee,
+    semestre: req.body.semestre,
+    nsection: req.body.nsection,
+    horaires: req.body.horaires,
+});
+
+  programme1.save();
+  res.redirect("programmes");
+}
+
 
 // Affiche liste des programmes
 exports.programmes_list_user = function(req, res) {
@@ -61,7 +102,7 @@ exports.programmes_list_user = function(req, res) {
 
 // Affiche liste des programmes
 exports.programmes_list = function(req, res) {
-  
+
     var etudiantId = req.params.etudiantId;
 
     Programme.find({}).populate('profsid').exec(function (err, Programmes) {
@@ -102,6 +143,10 @@ exports.programmes_add = function(req, res) {
 
 };
 
+
+
+//  **** PROFS ***
+
 // Affiche liste des profs
 exports.profs_list = function(req, res) {
     /*var prof1 = new Prof({
@@ -120,3 +165,47 @@ exports.profs_list = function(req, res) {
     })
 };
 
+
+exports.prof_new = function(req, res) {
+
+    var prof1 = new Prof({
+       nom:  req.body.nom,
+       departement: req.body.departement,
+       titre: req.body.titre,
+   });
+
+    prof1.save();
+    res.redirect("profs");
+}
+
+
+
+//  **** COURS ****
+
+
+exports.cours_new = function(req, res) {
+
+    var cours1 = new Cours({
+        annee:  req.body.annee,
+        semestre: req.body.semestre,
+        nsection: req.body.nsection,
+        horaires: req.body.horaires,
+    });
+
+    cours1.save();
+    res.redirect("cours");
+}
+
+
+
+// Affiche liste des profs
+exports.cours_list = function(req, res) {
+
+    Prof.find({}).exec(function (err, Cours) {
+        if(err){
+            console.log(err);
+        }else {
+            res.render('cours.ejs', {"cours": Cours});
+        }
+    })
+};

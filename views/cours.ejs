@@ -18,7 +18,7 @@
 		</div>
 	</nav>
 	<section>
-		<h2> Programmes </h2>
+		<h2> Cours </h2>
 		<hr>
 
 		<br>
@@ -26,7 +26,7 @@
 		<div class="row">
 
 			<!-- programme -->
-			<% programmes.forEach(function(programme){ %>
+			<% cours.forEach(function(cour){ %>
 			<div class="col s12 m6">
 				<div class="card">
 					<div class="card-image">
@@ -34,40 +34,21 @@
 						<!-- 	<a class="btn-floating halfway-fab waves-effect waves-light red" href="" ><i class="material-icons">person_add</i></a> -->
 					</div>
 					<div class="card-content">
-						<p>Semestre : <%= programme.semestre %></p>
-						<p>Année : <%= programme.annee %></p>
-						<p>Numéro section : <%= programme.nsection %></p>
+						<p>Nom : <%= cour.nom %></p>
+						<p>Titre : <%= cour.titre %></p>
+						<p>Nombre de cours : <%= cour.nombre %></p>
+
+						<p>Crédits : <%= cour.nsection %></p>
 						
 						<ul class="collapsible">
 							<li>
-								<div class="collapsible-header">Professeur</div>
+								<div class="collapsible-header">Pre-requis</div>
 								<div class="collapsible-body">
-									<% if (programme.profsid) { %>
+									<% if (cour.prerequis) { %>
 									<ul>
 
-										<% programme.profsid.forEach(function(prof){ %>
-										<li>• <%= prof.nom %> |  Département :  <%= prof.departement %> | Titre : <%= prof.titre %>
-										</li>
-										<% }); %>
-									</ul>
-
-									<% } %>
-								</div>
-							</li>
-						</ul>
-
-						<ul class="collapsible">
-							<li>
-								<div class="collapsible-header">Cours</div>
-								<div class="collapsible-body">
-
-									<%= programme.idcours %>
-
-									<% if (programme.idcours) { %>
-									<ul>
-
-										<% programme.idcours.forEach(function(cours){ %>
-										<li>• <%= cours.nom %> |  Titre : <%= cours.titre %> | Crédits :  <%= cours.credits %> | Nombre :  <%= cours.nombre %>
+										<% cour.prerequis.forEach(function(prerequis){ %>
+										<li>• <%= prerequis.nom %> | | Titre : <%= prerequis.titre %>
 										</li>
 										<% }); %>
 									</ul>
@@ -78,8 +59,6 @@
 						</ul>
 
 
-
-						<p>Description : <%= programme.description %></p>
 					</div>
 
 					<!-- 				<a class="btn-floating halfway-fab waves-effect waves-light red" href="/cours-list/" ><i class="material-icons">add</i></a> -->

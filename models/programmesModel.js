@@ -10,8 +10,8 @@ var programmesSchema = new Schema({
 	nsection: Number,
 	horaires: [Date],
 	description: [String],
-	profsid: [{ type: Schema.Types.ObjectId, ref: 'Profs'}]
-
+	profsid: [{ type: Schema.Types.ObjectId, ref: 'Profs'}],
+	idcours: [{ type: Schema.Types.ObjectId, ref: 'Cours'}]
 });
 
 
